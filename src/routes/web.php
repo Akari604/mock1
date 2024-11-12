@@ -18,5 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/',[ItemController::class, 'index']);
 });
 
+Route::get('/mypage/profile',[ItemController::class, 'create']);
+
 
 

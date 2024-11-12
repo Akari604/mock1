@@ -11,7 +11,7 @@
     <header class="header">
         <div class="header-content">
             <div class="header-ttl">
-                <img src="{{ asset('logo.png') }}" alt="COACHTECH">
+                <img src="{{ asset('storage/img/logo.png') }}" alt="COACHTECH" width="300px">
             </div>
         </div>
     </header>
@@ -22,7 +22,7 @@
             </div>
             <form class="form">
                 <div class="form_group">
-                    <div class="form_group-ttl">
+                    <div class="form_group-title">
                         <span class="form_group-label">
                             ユーザー名/メールアドレス
                         </span>

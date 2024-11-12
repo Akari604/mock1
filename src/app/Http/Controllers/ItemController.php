@@ -10,4 +10,9 @@ class ItemController extends Controller
     {
         return view('index');
     }
+
+    public function create()
+    {
+        return view('edit');
+    }
 }
