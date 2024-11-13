@@ -30,6 +30,93 @@
         </div>
     </header>
     <main>
-
+        <div class="main-content">
+            <div class="main-content_title">
+                <h2>プロフィール設定</h2>
+            </div>
+            <form class="main-content_form">
+                <div class="main-content_image">
+                    <div class="profile_image">
+                        <img src="" alt="プロフィール画像" class="img-content">
+                    </div>
+                    <div class="file-content">
+                        画像を選択する
+                        <input type="file" id="image" name="image" accept="image/png, image/jpeg" value="画像を選択する"/> 
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            ユーザー名
+                        </span>
+                    </div>
+                    <div class="form__group-content">
+                        <div class="form_input-text">
+                            <input type="text" name="name" value="{{ old('name') }}" />
+                        </div>
+                        <div class="form__error">
+                            @error('name')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            郵便番号
+                        </span>
+                    </div>
+                    <div class="form__group-content">
+                        <div class="form_input-text">
+                            <input type="text" name="number" value="{{ old('number') }}" />
+                        </div>
+                        <div class="form__error">
+                            @error('number')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            住所
+                        </span>
+                    </div>
+                    <div class="form__group-content">
+                        <div class="form_input-text">
+                            <input type="text" name="address" value="{{ old('address') }}" />
+                        </div>
+                        <div class="form__error">
+                            @error('address')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            建物名
+                        </span>
+                    </div>
+                    <div class="form__group-content">                 
+                        <div class="form_input-text">
+                            <input type="text" name="building" value="{{ old('building') }}" />
+                        </div>
+                        <div class="form__error">
+                            @error('building')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_button">
+                    <button class="form_button-submit" type="submit">更新する</button>
+                </div>
+            </form>
+        </div>
+    </main>               
 </body>
 </html>

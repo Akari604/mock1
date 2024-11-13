@@ -14,9 +14,11 @@ use App\Http\Controllers\ItemController;
 |
 */
 
-Route::middleware('auth')->group(function () {
-    Route::get('/',[ItemController::class, 'index']);
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/',[ItemController::class, 'index']);
+// });
+
+Route::get('/',[ItemController::class, 'index']);
 
 Route::get('/mypage/profile',[ItemController::class, 'create']);
 

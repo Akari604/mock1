@@ -18,10 +18,10 @@
                 <input type="search" id="site-search" name="search" value="なにをお探しですか？">
             </form>
             <div class="header-button">
-                <a href="/login" alt="ログイン">
+                <a href="/login" alt="ログイン" class="top_button">
                     ログイン
                 </a>
-                <a href="/mylist" alt="マイリスト">
+                <a href="/mylist" alt="マイリスト" class="top_button">
                     マイリスト
                 </a>
                 <a href="/exhibit" alt="出品" class="product_exhibit">

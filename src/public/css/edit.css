@@ -45,3 +45,78 @@
     padding: 3px 15px;
     border-radius: 5px;
 }
+
+.main-content_title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.main-content_image {
+    display: flex;
+    margin: 0 380px;
+    margin-top: 70px;
+}
+
+.profile_image {
+    border: 1px solid #ffffff9a;
+    background-color: #ffffff9a;
+    border-radius: 50%;
+}
+
+.img-content {
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.file-content {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    padding: 7px 12px;
+    border: 1px solid #dd0000;
+    color:#dd0000;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.file-content input {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    font-size: 100px;
+    cursor: pointer;
+}
+
+.form_group-ttl {
+    display: block;
+    margin: 0 380px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.form_input-text input {
+    padding: 10px 10px;
+    width: 45%;
+    display: block;
+    margin: 0 auto;
+}
+
+.form_button button {
+    padding: 10px 10px;
+    width: 45%;
+    background-color: #de5555;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: #de5555;
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
