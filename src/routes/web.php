@@ -14,13 +14,15 @@ use App\Http\Controllers\ItemController;
 |
 */
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/',[ItemController::class, 'index']);
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('/',[ItemController::class, 'index']);
+});
 
-Route::get('/',[ItemController::class, 'index']);
+// Route::get('/',[ItemController::class, 'index']);
 
 Route::get('/mypage/profile',[ItemController::class, 'create']);
+Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
+Route::get('/mypage',[ItemController::class, 'getProfile']);
 
 
 

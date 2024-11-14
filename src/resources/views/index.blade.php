@@ -36,16 +36,18 @@
                 <p class="recomend-button">おすすめ</p>
                 <p class="mylist-button">マイリスト</p>
             </div>
-            <div class="product_contents">
-                <div class="product_content">
-                    <a href="/item" class="product-link">
-                        <img src="" alt="商品画像" class="product-img">
-                        <div class="detail-content">
-                            <p>商品名</p>
-                        </div>
-                    </a>
+            <form>
+                <div class="product_contents">
+                    <div class="product_content">
+                        <a href="/item" class="product-link">
+                            <img src="" alt="商品画像" class="product-img">
+                            <div class="detail-content">
+                                <p>商品名</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </main>
 </body>

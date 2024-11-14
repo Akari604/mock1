@@ -15,4 +15,16 @@ class ItemController extends Controller
     {
         return view('edit');
     }
+
+    public function getDetail($item_id)
+    {
+
+        return view('detail');
+    }
+
+    public function getProfile()
+    {
+        
+        return view('profile');
+    }
 }
