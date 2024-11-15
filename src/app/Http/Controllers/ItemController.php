@@ -27,4 +27,22 @@ class ItemController extends Controller
         
         return view('profile');
     }
+
+    public function getPurchase($item_id)
+    {
+        
+        return view('purchase');
+    }
+
+    public function getAddress($item_id)
+    {
+        
+        return view('change');
+    }
+
+    public function getSell()
+    {
+        
+        return view('exhibit');
+    }
 }

@@ -23,6 +23,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/mypage/profile',[ItemController::class, 'create']);
 Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
 Route::get('/mypage',[ItemController::class, 'getProfile']);
+Route::get('/purchase/{item_id}',[ItemController::class, 'getPurchase']);
+Route::get('/purchase/address/{item_id}',[ItemController::class, 'getAddress']);
+Route::get('/sell',[ItemController::class, 'getSell']);
 
 
 
