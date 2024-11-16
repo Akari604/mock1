@@ -20,7 +20,7 @@
             <div class="register_content-heading">
                 <h2>会員登録</h2>
             </div>
-            <form class="form">
+            <form class="register-form_group" action="/register" method="post">
                 <div class="form_group">
                     <div class="form_group-ttl">
                         <span class="form_group-label">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="text" name="name" value="{{ old('name') }}" />
+                            <input type="text" name="name" id="name" />
                         </div>
                         <div class="form__error">
                             @error('name')
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="email" name="email" value="{{ old('email') }}" />
+                            <input type="email" name="email" id="email" />
                         </div>
                         <div class="form__error">
                             @error('email')
@@ -63,7 +63,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="password" name="password" />
+                            <input type="password" name="password" id="password" />
                         </div>
                         <div class="form__error">
                             @error('password')
@@ -80,12 +80,17 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="password" name="password_confirmation" />
+                            <input type="password" name="password_confirmation" id="password_confirmation" />
+                        </div>
+                        <div class="form__error">
+                            @error('password_confirmation')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
                 </div>
                 <div class="form_button">
-                    <button class="form_button-submit" type="submit">登録する</button>
+                    <input class="form_button-submit" type="submit" value="登録する">
                 </div>
             </form>
             <div class="login_link">
