@@ -21,6 +21,7 @@
                 <h2>会員登録</h2>
             </div>
             <form class="register-form_group" action="/register" method="post">
+                @csrf
                 <div class="form_group">
                     <div class="form_group-ttl">
                         <span class="form_group-label">
@@ -29,11 +30,11 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="text" name="name" id="name" />
+                            <input type="text" name="name" id="name" value="{{ old('name') }}" />
                         </div>
                         <div class="form__error">
                             @error('name')
-                            {{ $message }}
+                            {{ $message }} 
                             @enderror
                         </div>
                     </div>
@@ -46,7 +47,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="email" name="email" id="email" />
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" />
                         </div>
                         <div class="form__error">
                             @error('email')
@@ -63,7 +64,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="password" name="password" id="password" />
+                            <input type="password" name="password" id="password" value="{{ old('password') }}" />
                         </div>
                         <div class="form__error">
                             @error('password')
@@ -80,7 +81,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="password" name="password_confirmation" id="password_confirmation" />
+                            <input type="password" name="password_confirmation" id="password_confirmation" value="{{ old('password_confirmation') }}" />
                         </div>
                         <div class="form__error">
                             @error('password_confirmation')

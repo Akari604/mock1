@@ -20,7 +20,8 @@
             <div class="login_content-heading">
                 <h2>ログイン</h2>
             </div>
-            <form class="form">
+            <form class="login-form_group" action="/login" method="post">
+                @csrf
                 <div class="form_group">
                     <div class="form_group-title">
                         <span class="form_group-label">
@@ -29,7 +30,7 @@
                     </div>
                     <div class="form_group-content">
                         <div class="form_input-text">
-                            <input type="email" name="email" value="{{ old('email') }}" />
+                            <input type="email" name="email" id="email" />
                         </div>
                         <div class="form__error">
                             @error('email')
@@ -44,7 +45,7 @@
                     </div>
                     <div class="form_group-content">
                         <div class="form_input-text">
-                            <input type="password" name="password" />
+                            <input type="password" name="password" id="password" />
                         </div>
                         <div class="form__error">
                             @error('password')
@@ -54,7 +55,7 @@
                     </div>
                 </div>
                 <div class="form_button">
-                    <button class="form_button-submit" type="submit">ログインする</button>
+                    <input class="form_button-submit" type="submit" value="ログインする">
                 </div>
             </form>
             <div class="register_link">
