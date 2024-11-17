@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\AuthRequest;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
-    public function register(AuthRequest $request)
+    public function register(RegisterRequest $request)
     {
         $users = $request->all
         return view('register')
     }
 
-    public function login(AuthRequest $request)
+    public function login(LoginRequest $request)
     {
         $users = $request->only('email', 'password');
 
-        if (Auth::attempt($user)) {
+        if (Auth::attempt($users)) {
             $request->session()->regenerate();
 
             return redirect('/');

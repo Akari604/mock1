@@ -30,7 +30,7 @@
                     </div>
                     <div class="form_group-content">
                         <div class="form_input-text">
-                            <input type="email" name="email" id="email" />
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" />
                         </div>
                         <div class="form__error">
                             @error('email')
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form_group-content">
                         <div class="form_input-text">
-                            <input type="password" name="password" id="password" />
+                            <input type="password" name="password" id="password" value="{{ old('password') }}" />
                         </div>
                         <div class="form__error">
                             @error('password')
