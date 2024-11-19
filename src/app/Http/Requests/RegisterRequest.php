@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Foundation\Http\FormRequest;
 use Laravel\Fortify\Http\Requests\RegisterRequest as FortifyRegisterRequest;
 
 class RegisterRequest extends FortifyRegisterRequest

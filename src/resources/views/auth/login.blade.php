@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="form_button">
-                    <input class="form_button-submit" type="submit" value="ログインする">
+                    <button class="form_button-submit" type="submit">ログインする</button>
                 </div>
             </form>
             <div class="register_link">

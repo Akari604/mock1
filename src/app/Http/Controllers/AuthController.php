@@ -8,13 +8,19 @@ use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
-    public function register(RegisterRequest $request)
+    public function store(RegisterRequest $request)
     {
         $users = $request->all
-        return view('register')
+        return redirect('mypage/profile')
+    }
+    
+    public function store(RegisterRequest $request)
+    {
+        $users = $request->all
+        return redirect('mypage/profile')
     }
 
-    public function login(LoginRequest $request)
+    public function store(LoginRequest $request)
     {
         $users = $request->only('email', 'password');
 

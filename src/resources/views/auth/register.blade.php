@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="form_button">
-                    <input class="form_button-submit" type="submit" value="登録する">
+                    <button class="form_button-submit" type="submit">登録する</button>
                 </div>
             </form>
             <div class="login_link">
