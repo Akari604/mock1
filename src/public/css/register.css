@@ -29,6 +29,12 @@
     margin: 0 auto;
 }
 
+.form__error {
+    margin-left: 28%;
+    margin-top: 15px;
+    color: red;
+}
+
 .form_button button {
     padding: 10px 10px;
     width: 45%;

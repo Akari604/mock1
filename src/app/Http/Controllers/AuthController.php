@@ -10,14 +10,14 @@ class AuthController extends Controller
 {
     public function store(RegisterRequest $request)
     {
-        $users = $request->all
-        return redirect('mypage/profile')
+        $users = $request->all();
+        return redirect('mypage/profile');
     }
     
     public function store(RegisterRequest $request)
     {
-        $users = $request->all
-        return redirect('mypage/profile')
+        $users = $request->all();
+        return redirect('mypage/profile');
     }
 
     public function store(LoginRequest $request)
