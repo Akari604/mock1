@@ -18,9 +18,15 @@
                 <input type="search" id="site-search" name="search" value="なにをお探しですか？">
             </form>
             <div class="header-button">
+                @if (Auth::check())
+                <form class="top_button" action="/logout" method="post">
+                    @csrf
+                    <button class="top_button">ログアウト</button>
+                </form>
                 <a href="/login" class="top_button">
                     ログイン
                 </a>
+                @endif
                 <a href="/mylist" class="top_button">
                     マイリスト
                 </a>
