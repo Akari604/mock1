@@ -75,6 +75,7 @@ return [
     */
 
     'home' => RouteServiceProvider::HOME,
+    'registered' => RouteServiceProvider::REGISTERED_REDIRECT,
 
     /*
     |--------------------------------------------------------------------------
