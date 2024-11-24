@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AddressRequest;
+use App\Models\Item;
 
 class ItemController extends Controller
 {
@@ -11,8 +13,10 @@ class ItemController extends Controller
         return view('index');
     }
 
-    public function create()
+    public function create(AddressRequest $request)
     {
+        // $profiles = $request->all();
+        // return view('edit', compact('profiles'));
         return view('edit');
     }
 

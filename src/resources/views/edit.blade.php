@@ -11,15 +11,21 @@
     <header class="header">
         <div class="header-content">
             <div class="header-ttl">
-                <img src="{{ asset('storage/img/logo.png') }}" alt="COACHTECH" width="300px">
+                <img src="{{ asset('storage/images/logo.png') }}" alt="COACHTECH" width="300px">
             </div>
             <form class="header-search_form">
                 <input type="search" id="site-search" name="search" value="なにをお探しですか？">
             </form>
             <div class="header-button">
+                @if (Auth::check())
+                <form class="top_button" action="/logout" method="post">
+                    @csrf
+                    <button class="top_button">ログアウト</button>
+                </form>
                 <a href="/login" class="top_button">
                     ログイン
                 </a>
+                @endif
                 <a href="/mylist" class="top_button">
                     マイリスト
                 </a>
@@ -34,7 +40,7 @@
             <div class="main-content_title">
                 <h2>プロフィール設定</h2>
             </div>
-            <form class="main-content_form">
+            <form class="main-content_form" action="/" method="post">
                 <div class="main-content_image">
                     <div class="profile_image">
                         <img src="" alt="プロフィール画像" class="img-content">
@@ -52,7 +58,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="text" name="name" value="{{ old('name') }}" />
+                            <input type="text" name="name" />
                         </div>
                         <div class="form__error">
                             @error('name')
@@ -69,7 +75,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="text" name="number" value="{{ old('number') }}" />
+                            <input type="text" name="number" />
                         </div>
                         <div class="form__error">
                             @error('number')
@@ -86,7 +92,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form_input-text">
-                            <input type="text" name="address" value="{{ old('address') }}" />
+                            <input type="text" name="address" />
                         </div>
                         <div class="form__error">
                             @error('address')
@@ -103,7 +109,7 @@
                     </div>
                     <div class="form__group-content">                 
                         <div class="form_input-text">
-                            <input type="text" name="building" value="{{ old('building') }}" />
+                            <input type="text" name="building" />
                         </div>
                         <div class="form__error">
                             @error('building')

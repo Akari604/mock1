@@ -11,7 +11,7 @@
     <header class="header">
         <div class="header-content">
             <div class="header-ttl">
-                <img src="{{ asset('storage/img/logo.png') }}" alt="COACHTECH" width="300px">
+                <img src="{{ asset('storage/images/logo.png') }}" alt="COACHTECH" width="300px">
             </div>
         </div>
     </header>
