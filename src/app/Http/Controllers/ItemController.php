@@ -5,19 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddressRequest;
 use App\Models\Item;
+use App\Models\Profile;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('index');
+        $profiles = Profile::all();
+        return view('index', compact('profiles'));
+    }
+
+    public function store(Request $request)
+    {
+        return view('edit');
     }
 
     public function create(AddressRequest $request)
     {
-        // $profiles = $request->all();
-        // return view('edit', compact('profiles'));
-        return view('edit');
+        $form = $request->all();
+        Profile::create($form);
+        return redirect('/');
     }
 
     public function getDetail($item_id)

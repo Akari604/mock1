@@ -40,7 +40,8 @@
             <div class="main-content_title">
                 <h2>プロフィール設定</h2>
             </div>
-            <form class="main-content_form" action="/" method="post">
+            <form class="main-content_form" action="/mypage/profile" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="main-content_image">
                     <div class="profile_image">
                         <img src="" alt="プロフィール画像" class="img-content">

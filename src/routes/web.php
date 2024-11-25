@@ -15,7 +15,8 @@ use App\Http\Controllers\ItemController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/mypage/profile',[ItemController::class, 'create']);
+    Route::get('/mypage/profile',[ItemController::class, 'store']);
+    Route::post('/mypage/profile',[ItemController::class, 'create']);
     Route::get('/',[ItemController::class, 'index']);
 });
 
