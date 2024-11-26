@@ -12,10 +12,11 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $profiles = Profile::all();
-        return view('index', compact('profiles'));
+        $items = Item::all();
+        return view('index', compact('profiles', 'items'));
     }
 
-    public function store(Request $request)
+    public function store()
     {
         return view('edit');
     }
