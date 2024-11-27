@@ -42,18 +42,16 @@
                 <p class="recomend-button">おすすめ</p>
                 <p class="mylist-button">マイリスト</p>
             </div>
-            <form>
-                <div class="product_contents">
-                    <div class="product_content">
-                        <a href="/item" class="product-link">
-                            <img src="" alt="商品画像" class="product-img">
-                            <div class="detail-content">
-                                <p>商品名</p>
-                            </div>
-                        </a>
-                    </div>
+            <div class="product_contents">
+                <div class="product_content">
+                    <a href="/item" class="product-link">
+                        <img src="{{ asset($product->image) }}" alt="商品画像" class="product-img">
+                        <div class="detail-content">
+                            <p>商品名</p>
+                        </div>
+                    </a>
                 </div>
-            </form>
+            </div>
         </div>
     </main>
 </body>

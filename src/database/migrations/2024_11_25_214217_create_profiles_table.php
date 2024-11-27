@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->string('name');
-            $table->integer('number');
+            $table->integer('number')->change();
             $table->string('address');
             $table->string('building');
             $table->timestamps();
@@ -32,5 +32,6 @@ class CreateProfilesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('profiles');
+        $table->string('number')->change();
     }
 }
