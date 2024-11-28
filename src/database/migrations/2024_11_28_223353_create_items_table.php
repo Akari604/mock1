@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilesTable extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
-            $table->string('name');
-            $table->integer('number')->change();
-            $table->string('address');
-            $table->string('building');
+            $table->string('product_name')->comment('商品名');
+            $table->bigInteger('price')->comment('商品の価格');
+            $table->text('description')->comment('商品の説明');
+            $table->string('img_url')->comment('商品画像');
             $table->timestamps();
         });
     }
@@ -31,7 +30,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
-        $table->string('number')->change();
+        Schema::dropIfExists('items');
     }
 }

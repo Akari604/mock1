@@ -11,9 +11,8 @@ class ItemController extends Controller
 {
     public function index(Request $request)
     {
-        $profiles = Profile::all();
         $items = Item::all();
-        return view('index', compact('profiles', 'items'));
+        return view('index', compact('items'));
     }
 
     public function store()
