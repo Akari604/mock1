@@ -56,4 +56,21 @@ class ItemController extends Controller
         
         return view('exhibit');
     }
+
+    public function upload()
+    {
+        $dir = 'images';
+
+        $file_name = $request->file('item_image')->getClientOriginalName();
+        $request->file('item_image')->storeAs('public/' . $dir, $file_name);
+
+        $item_data = new Item();
+        $item_data->name= $_POST["item_name"];
+        $item_data->price= $_POST["item_price"];
+        $item_data->image= 'storage/' . $dir . '/' . $file_name;
+        $item_data->description= $_POST["item_description"];
+        $item_data->save();
+        
+        return redirect('/');
+    }
 }

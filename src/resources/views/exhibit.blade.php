@@ -43,7 +43,8 @@
                     </div>
                     <div class="file-content">
                         画像を選択する
-                        <input type="file" id="image" name="image" accept="image/png, image/jpeg" value="画像を選択する"/> 
+                        <output id="list" class="image_output"></output>
+                        <input type="file" id="item_image" name="image" accept="image/png, image/jpeg" value="画像を選択する"/> 
                     </div>
                 </div>
                 <div class="products_detail">
