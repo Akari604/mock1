@@ -57,7 +57,7 @@ class ItemController extends Controller
         return view('exhibit');
     }
 
-    public function upload()
+    public function upload(Request $request)
     {
         $dir = 'images';
 
@@ -70,6 +70,8 @@ class ItemController extends Controller
         $item_data->image= 'storage/' . $dir . '/' . $file_name;
         $item_data->description= $_POST["item_description"];
         $item_data->save();
+
+        $items = Item::all();
         
         return redirect('/');
     }

@@ -30,7 +30,7 @@
             </div>
         </div>
     </header>
-    <main>
+    <main?>
         <div class="main_content">
             <div class="main_content-heading">
                 <h1>商品の出品</h1>
@@ -44,10 +44,54 @@
                     <div class="file-content">
                         画像を選択する
                         <output id="list" class="image_output"></output>
-                        <input type="file" id="item_image" name="image" accept="image/png, image/jpeg" value="画像を選択する"/> 
+                        <input type="file" id="item_image" name="image" accept="image/png, image/jpeg" value="画像を選択する"/>
+                        @error('item_image')
+                            <span class="input_error">
+                                <p class="input_error_message">{{$errors->first('item_condition')}}</p>
+                            </span>
+                        @enderror 
                     </div>
                 </div>
                 <div class="products_detail">
                     <h2>商品の詳細</h2>
                     <div class="product_categories">
                         <h3>カテゴリー</h3>
+                    </div>
+                    <label class="label">商品の状態</label>
+                    <select class="condition" placehplder="選択してください" name="item_condition" id="condition">
+                    @error('item_condition')
+                        <span class="input_error">
+                            <p class="input_error_message">{{$errors->first('item_condition')}}</p>
+                        </span>
+                    @enderror
+                    <div class="product-name_description">
+                        <h2>商品名と説明</h2>
+                    </div>
+                    <label class="label">商品名</label>
+                    <input type="text" name="item_name" class="text">
+                    @error('item_name')
+                        <span class="input_error">
+                            <p class="input_error_message">{{$errors->first('item_name')}}</p>
+                        </span>
+                    @enderror
+                    <label class="label">商品の説明</label>
+                    <textarea cols="30" rows="5" name="item_description" class="textarea"></textarea>
+                    @error('item_description')
+                        <span class="input_error">
+                            <p class="input_error_message">{{$errors->first('item_description')}}</p>
+                        </span>
+                    @enderror
+                    <label class="label">販売価格</label>
+                    <input type="text" class="text" placeholder="￥" name="item_price">
+                    @error('item_price')
+                        <span class="input_error">
+                            <p class="input_error_message">{{$errors->first('item_price')}}</p>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
