@@ -46,7 +46,7 @@
                 @foreach($items as $item)
                     <div class="product_content">
                         <a href="/item/{{ $item->id }}" class="product-link">
-                            <img src="{{ asset($item->image) }}" alt="商品画像" class="product-img">
+                            <img src="{{ asset($item->img_url) }}" alt="商品画像" class="product-img">
                             <div class="detail-content">
                                 <p>{{ $item->product_name }}</p>
                             </div>

@@ -29,8 +29,9 @@ class ItemController extends Controller
 
     public function getDetail($item_id)
     {
+        $item = Item::find($item_id);
 
-        return view('detail');
+        return view('detail', compact('item'));
     }
 
     public function getProfile()
@@ -57,7 +58,7 @@ class ItemController extends Controller
         return view('exhibit');
     }
 
-    public function upload(Request $request)
+    public function upload(ItemRequest $request)
     {
         $dir = 'images';
 
