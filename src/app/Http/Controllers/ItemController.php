@@ -42,8 +42,9 @@ class ItemController extends Controller
 
     public function getPurchase($item_id)
     {
+        $item = Item::find($item_id);
         
-        return view('purchase');
+        return view('purchase', compact('item'));
     }
 
     public function getAddress($item_id)

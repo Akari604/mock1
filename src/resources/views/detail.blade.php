@@ -58,12 +58,21 @@
                         <div class="comment-count" id="commentCount">0</div>
                     </div>
                     <div class="main-content_btn">
-                        <button class="purchase-btn">購入手続きへ</button>
+                        <a href="/purchase/{{ $item->id }}" class="purchase-btn">購入手続きへ</a>
                     </div>
                     <div class="product_detail">
                         <h3>商品説明</h3>
                         <p class="product_description">{{ $item->description }}</p>
+                    </div>
+                    <div class="product_information">
+                        <h3>商品の情報</h3>
+                        <p class="product_category">カテゴリー<span></span></p>
+                        <p class="product_condition">商品の状態<span></span></p>
+                    </div>
+                    <div class="product_comment">
+                        <p class="comment">コメント<span>()</span></p>
 
+                        
                     
       <script>
       </script>
