@@ -14,13 +14,14 @@
             <div class="header-ttl">
                 <img src="{{ asset('storage/images/logo.png') }}" alt="COACHTECH" width="300px">
             </div>
-            <form class="header-search_form">
-                <input type="search" id="site-search" name="search" value="なにをお探しですか？">
+            <form class="header-search_form" action="/" method="get">
+            @csrf
+                <input type="text" id="keyword" name="keyword" placeholder="なにをお探しですか？" value="{{ $keyword }}">
             </form>
             <div class="header-button">
                 @if (Auth::check())
                 <form class="top_button" action="/logout" method="post">
-                    @csrf
+                @csrf
                     <button class="top_button">ログアウト</button>
                 </form>
                 <a href="/login" class="top_button">

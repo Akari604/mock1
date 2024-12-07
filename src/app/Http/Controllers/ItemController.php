@@ -12,7 +12,20 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $items = Item::all();
-        return view('index', compact('items'));
+
+        $keyword = $request->input('keyword');
+        $query = Item::query();
+
+        if ($request->filled('keyword')) {
+
+            $keyword = $request->input('keyword');
+            $query->where('product_name','like','%'.$keyword.'%');
+
+        }
+
+        $items = $query->get();
+
+        return view('index', compact('items', 'keyword'));
     }
 
     public function store()
@@ -77,4 +90,5 @@ class ItemController extends Controller
         
         return redirect('/');
     }
+
 }
