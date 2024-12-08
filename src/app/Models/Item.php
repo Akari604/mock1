@@ -19,4 +19,12 @@ class Item extends Model
     protected $guarded = [
         'id',
     ];
+
+    public function comments() {
+        return $this->belongsTo(Comment::class);
+    }
+    
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
+    }
 }
