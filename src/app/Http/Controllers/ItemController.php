@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AddressRequest;
 use App\Models\Item;
 use App\Models\Profile;
@@ -43,11 +42,16 @@ class ItemController extends Controller
         return redirect('/');
     }
 
-    public function getDetail($item_id)
+    public function getDetail(Request $request, $item_id)
     {
         $item = Item::find($item_id);
+        $profiles = Profile::all();
+        $items = Item::withCount('favorites')->orderBy('id', 'desc')->paginate(10);
+        $param = [
+            'items' => $items,
+        ];
 
-        return view('detail', compact('item'));
+        return view('detail', $param, compact('item', 'profiles'));
     }
 
     public function getProfile()

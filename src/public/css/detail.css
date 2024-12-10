@@ -72,10 +72,15 @@
     background-color: #fff;
 }
 
-.star-regular {
-    width: 25px;
-    height: 25px;
+.liked {
+    color: yellow;
 }
+
+.fa-light{
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-size: 25px;
+  }
 
 .comment-regular {
     width: 25px;

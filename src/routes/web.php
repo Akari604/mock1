@@ -25,8 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/purchase/address/{item_id}',[ItemController::class, 'getAddress']);
     Route::get('/sell',[ItemController::class, 'getSell']);
 
-    Route::post('/{id}/favorite', [FavoriteController::class, 'store']);
-    Route::get('/{id}/unfavorite', [FavoriteController::class, 'destroy']);
+    Route::post('/favorite', [FavoriteController::class, 'like']);
     Route::post('/item/{comment_id}/comments', [CommentController::class, 'store']);
     Route::get('/comments/{comment_id}', [CommentController::class, 'destroy']);
 });

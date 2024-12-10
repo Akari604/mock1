@@ -45,28 +45,8 @@ class User extends Authenticatable
     public function comments() {
         return $this->hasMany(Comment::class);
     }
-    
+
     public function favorites() {
-        return $this->hasMany(Favorite::class, 'favorites', 'user_id', 'item_id')->withTimestamps();
-
-        if($exist) {
-            return false;
-        } else {
-            $this->favorites()->attach($itemId);
-            return true;
-        }
-    }
-
-    public function unfavorite($itemId)
-    {
-        $exist = $this->is_favorites($itemId);
-        return true;
-    } else {
-        return false;
-    }
-
-    public function is_favorite($itemId)
-    {
-        return $this->favorites()->where('item_id', $itemId)->exist();
+        return $this->hasMany(Comment::class);
     }
 }
