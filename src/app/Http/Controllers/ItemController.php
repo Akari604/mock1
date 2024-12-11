@@ -51,7 +51,7 @@ class ItemController extends Controller
             'items' => $items,
         ];
 
-        return view('detail', $param, compact('item', 'profiles'));
+        return view('detail', $param , compact('item', 'profiles'));
     }
 
     public function getProfile()
@@ -97,5 +97,4 @@ class ItemController extends Controller
         
         return redirect('/');
     }
-
 }

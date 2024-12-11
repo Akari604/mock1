@@ -20,12 +20,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile',[ItemController::class, 'store']);
     Route::post('/mypage/profile',[ItemController::class, 'create']);
     Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
+    Route::post('/item/{item_id}/like',[FavoriteController::class, 'like']);
     Route::get('/mypage',[ItemController::class, 'getProfile']);
     Route::get('/purchase/{item_id}',[ItemController::class, 'getPurchase']);
     Route::get('/purchase/address/{item_id}',[ItemController::class, 'getAddress']);
     Route::get('/sell',[ItemController::class, 'getSell']);
 
-    Route::post('/favorite', [FavoriteController::class, 'like']);
     Route::post('/item/{comment_id}/comments', [CommentController::class, 'store']);
     Route::get('/comments/{comment_id}', [CommentController::class, 'destroy']);
 });

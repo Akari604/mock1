@@ -74,6 +74,7 @@
 
 .liked {
     color: yellow;
+    transition: .2s;
 }
 
 .fa-light{
