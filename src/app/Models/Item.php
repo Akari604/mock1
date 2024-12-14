@@ -16,16 +16,21 @@ class Item extends Model
         'img_url',
     ];
 
-    protected $guarded = [
-        'id',
-    ];
+    // public function users()
+    // {
+    //     return $this->belongsToMany(User::class, 'favorites')
+    //         ->using(Favorite::class);
+    // }
 
-    public function favorites()
+    public function users()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->belongsToMany(User::class, 'favorites')
+            ->using(Favorite::class);
     }
-    //後でViewで使う、いいねされているかを判定するメソッド。
-    public function isLikedBy($user): bool {
+
+    public function isLikedBy($user)
+    {
         return Favorite::where('user_id', $user->id)->where('item_id', $this->id)->first() !==null;
     }
+    
 }

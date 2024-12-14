@@ -19,15 +19,17 @@
                 <input type="text" id="keyword" name="keyword" placeholder="なにをお探しですか？" value="{{ $keyword }}">
             </form>
             <div class="header-button">
-                @if (Auth::check())
-                <form class="top_button" action="/logout" method="post">
-                @csrf
-                    <button class="top_button">ログアウト</button>
-                </form>
-                <a href="/login" class="top_button">
-                    ログイン
-                </a>
-                @endif
+                @auth
+                    <form class="top_button" action="/logout" method="post">
+                    @csrf
+                        <button class="top_button">ログアウト</button>
+                    </form>
+                @endauth
+                @guest
+                    <a href="/login" class="top_button">
+                        ログイン
+                    </a>
+                @endguest
                 <a href="/mylist" class="top_button">
                     マイリスト
                 </a>

@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile',[ItemController::class, 'store']);
     Route::post('/mypage/profile',[ItemController::class, 'create']);
     Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
-    Route::post('/item/{item_id}/like',[FavoriteController::class, 'like']);
+    Route::post('/item/{item_id}/favorite',[FavoriteController::class, 'favorite']);
     Route::get('/mypage',[ItemController::class, 'getProfile']);
     Route::get('/purchase/{item_id}',[ItemController::class, 'getPurchase']);
     Route::get('/purchase/address/{item_id}',[ItemController::class, 'getAddress']);
@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/',[ItemController::class, 'index']);
 Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
+Route::post('/item/{item_id}',[ItemController::class, 'getLike']);
 
 
 

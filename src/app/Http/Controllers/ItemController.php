@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AddressRequest;
 use App\Models\Item;
 use App\Models\Profile;
-use App\Models\Comment;
+use App\Models\User;
 use App\Models\Favorite;
 
 class ItemController extends Controller
@@ -44,14 +44,11 @@ class ItemController extends Controller
 
     public function getDetail(Request $request, $item_id)
     {
-        $item = Item::find($item_id);
+        $items = Item::all();
+        $item = Item::find($item_id);  
         $profiles = Profile::all();
-        $items = Item::withCount('favorites')->orderBy('id', 'desc')->paginate(10);
-        $param = [
-            'items' => $items,
-        ];
 
-        return view('detail', $param , compact('item', 'profiles'));
+        return view('detail', compact('items', 'item', 'profiles'));
     }
 
     public function getProfile()
