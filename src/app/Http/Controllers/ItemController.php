@@ -42,10 +42,10 @@ class ItemController extends Controller
         return redirect('/');
     }
 
-    public function getDetail(Request $request, $item_id)
+    public function getDetail(Request $request, $itemId)
     {
         $items = Item::all();
-        $item = Item::find($item_id);  
+        $item = Item::find($itemId);  
         $profiles = Profile::all();
 
         return view('detail', compact('items', 'item', 'profiles'));
@@ -57,14 +57,14 @@ class ItemController extends Controller
         return view('profile');
     }
 
-    public function getPurchase($item_id)
+    public function getPurchase($itemId)
     {
-        $item = Item::find($item_id);
+        $item = Item::find($itemId);
         
         return view('purchase', compact('item'));
     }
 
-    public function getAddress($item_id)
+    public function getAddress($itemId)
     {
         
         return view('change');

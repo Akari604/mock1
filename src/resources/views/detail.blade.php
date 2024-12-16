@@ -55,15 +55,15 @@
                     </div>
                     <div class="tap_button">
                         @auth
-                            @if(!$item->isLikedBy(Auth::user()))
+                            @if (!empty($itemIds) && in_array($item->id, $itemIds))
                                 <span class="favorites">
                                     <i class="fa-regular fa-star like-Btn" data-item-id="{{ $item->id }}"></i>
-                                </span><!-- /.likes -->
+                                </span>
                             @else
                                 <span class="favorites">
                                     <i class="fa-regular fa-star like-Btn liked" data-item-id="{{ $item->id }}"></i>
-                                </span><!-- /.likes -->
-                            @endif                    
+                                </span>  
+                            @endif   
                         @endauth
                         <div class="like-count" id="likeCount">0</div>
                         <button type="button" class="comment-btn" id="commentButton">
