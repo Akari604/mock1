@@ -2,11 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プロフィール画面</title>
+    <title>プロフィール設定画面</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/profile.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}" />
 </head>
 <body>
     <header class="header">
@@ -38,31 +37,93 @@
     </header>
     <main>
         <div class="main-content">
-            <div class="main-content_heading">
-                <img src="" alt="プロフィール画像" class="img-content">
-                <p class="login-user_name">ユーザー名</p>
+            <div class="main-content_title">
+                <h2>プロフィール設定</h2>
             </div>
-            <a href="/mypage/profile" class="profile-edit_button">
-                プロフィールを編集
-            </a>
-            <div class="main-products">
-                <p class="exhibit-product">出品した商品</p>
-                <p class="purchase-product">購入した商品</p>
-            </div>
-            <form>
-                <div class="product_contents">
-                    <div class="product_content">
-                        <a href="/item" class="product-link">
-                            <img src="" alt="商品画像" class="product-img">
-                            <div class="detail-content">
-                                <p>商品名</p>
-                            </div>
-                        </a>
+            <form class="main-content_form" action="/mypage" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="main-content_image">
+                    <div class="profile_image">
+                        <img src="" alt="プロフィール画像" class="img-content">
                     </div>
+                    <div class="file-content">
+                        画像を選択する
+                        <input type="file" id="image" name="image" accept="image/png, image/jpeg" value="画像を選択する"/> 
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            ユーザー名
+                        </span>
+                    </div>
+                    <div class="form__group-content">
+                        <div class="form_input-text">
+                            <input type="text" name="name" />
+                        </div>
+                        <div class="form__error">
+                            @error('name')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            郵便番号
+                        </span>
+                    </div>
+                    <div class="form__group-content">
+                        <div class="form_input-text">
+                            <input type="text" name="number" />
+                        </div>
+                        <div class="form__error">
+                            @error('number')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            住所
+                        </span>
+                    </div>
+                    <div class="form__group-content">
+                        <div class="form_input-text">
+                            <input type="text" name="address" />
+                        </div>
+                        <div class="form__error">
+                            @error('address')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="form_group-ttl">
+                        <span class="form_group-label">
+                            建物名
+                        </span>
+                    </div>
+                    <div class="form__group-content">                 
+                        <div class="form_input-text">
+                            <input type="text" name="building" />
+                        </div>
+                        <div class="form__error">
+                            @error('building')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form_button">
+                    <button class="form_button-submit" type="submit">更新する</button>
                 </div>
             </form>
         </div>
-    </main>
+    </main>               
 </body>
 </html>
-

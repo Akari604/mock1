@@ -22,7 +22,6 @@ class ItemController extends Controller
 
             $keyword = $request->input('keyword');
             $query->where('product_name','like','%'.$keyword.'%');
-
         }
 
         $items = $query->get();
@@ -32,9 +31,9 @@ class ItemController extends Controller
 
     public function store()
     {
-        return view('edit');
+        return view('profile');
     }
-
+    
     public function create(AddressRequest $request)
     {
         $form = $request->all();
@@ -42,19 +41,21 @@ class ItemController extends Controller
         return redirect('/');
     }
 
-    public function getDetail(Request $request, $itemId)
+    public function editProfile()
     {
-        $items = Item::all();
-        $item = Item::find($itemId);  
-        $profiles = Profile::all();
-
-        return view('detail', compact('items', 'item', 'profiles'));
+        return view('edit_profile');
     }
 
-    public function getProfile()
+    public function updateProfile()
     {
-        
-        return view('profile');
+        return redirect('/mypage');
+    }
+
+    public function getDetail(Request $request, $itemId)
+    {
+        $item = Item::find($itemId); 
+
+        return view('detail', compact('item'));
     }
 
     public function getPurchase($itemId)

@@ -55,7 +55,7 @@
                     </div>
                     <div class="tap_button">
                         @auth
-                            @if (!empty($itemIds) && in_array($item->id, $itemIds))
+                            @if (!empty($itemId))
                                 <span class="favorites">
                                     <i class="fa-regular fa-star like-Btn" data-item-id="{{ $item->id }}"></i>
                                 </span>
@@ -88,12 +88,12 @@
                     <div class="product_comment">
                         <p class="comment">コメント<span>()</span></p>
                         <div class="user-display">
-                            <div class="user_img">
-                                <img src="" alt="ユーザー画像" class="img-user">
-                            </div>
-                            <div class="user_name">
-                                <p class="name"></p>
-                            </div>
+                                <div class="user_img">
+                                    <img src="" alt="ユーザー画像" class="img-user">
+                                </div>
+                                <div class="user_name">
+                                    <p class="name"></p>
+                                </div>
                         </div>
                         <div class="user_comment">
                             <P class="text_comment"></p>
@@ -101,9 +101,16 @@
                         <div class="product_message">
                             <textarea cols="20" rows="5" name="message_comment" class="message-comment"></textarea>
                         </div>
-                        <div class="button-content">
-                            <button type="submit" class="submit-button">コメントを送信する</button>
+                        <div class="contact-form__error-message">
+                            @error('body')
+                            {{ $message }}
+                            @enderror
                         </div>
+                        <form class="comment" action="/item/{item_id}" method="post">
+                            <div class="button-content">
+                                <button type="submit" class="submit-button">コメントを送信する</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

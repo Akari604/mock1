@@ -17,12 +17,13 @@ use App\Http\Controllers\FavoriteController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/',[ItemController::class, 'index']);
-    Route::get('/mypage/profile',[ItemController::class, 'store']);
-    Route::post('/mypage/profile',[ItemController::class, 'create']);
+    Route::get('/mypage',[ItemController::class, 'store']);
+    Route::post('/mypage',[ItemController::class, 'create']);
+    Route::get('/mypage/profile',[ItemController::class, 'editProfile']);
+    Route::post('/mypage/profile',[ItemController::class, 'updateProfile']);
     Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
     Route::post('/item/{item_id}/like',[FavoriteController::class, 'like']);
     Route::post('/item/{item_id}/unlike',[FavoriteController::class, 'unlike']);
-    Route::get('/mypage',[ItemController::class, 'getProfile']);
     Route::get('/purchase/{item_id}',[ItemController::class, 'getPurchase']);
     Route::get('/purchase/address/{item_id}',[ItemController::class, 'getAddress']);
     Route::get('/sell',[ItemController::class, 'getSell']);
