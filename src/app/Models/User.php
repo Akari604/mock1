@@ -48,9 +48,10 @@ class User extends Authenticatable
     //         ->using(Favorite::class);
     // }
 
-    public function items()
+    public function favorites()
     {
-        return $this->belongsToMany(Item::class, 'favorites')
-            ->using(Favorite::class);
+        return $this->belongsToMany(Item::class, 'favorites');
     }
+
+
 }

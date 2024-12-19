@@ -65,6 +65,7 @@
                                 </span>  
                             @endif   
                         @endauth
+                        <a href="/item/{{ $item->id }}/like">いいね</a>
                         <div class="like-count" id="likeCount">0</div>
                         <button type="button" class="comment-btn" id="commentButton">
                             <i class="fa-regular fa-comment" data-item-id="{{ $item->id }}"></i>

@@ -7,12 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-    public function likeStore(Request $request)
+    public function likeStore($id)
     {
-        $user_id = \Auth::user();
-        if (!$user->favorites($itemId)) {
-            $user->favorites()->attach($itemId);
-        }
+        $user = Auth::user();
+        // if (!$user->favorites($itemId)) {
+        //     $user->favorites()->attach($itemId);
+        // }
+        $user->favorites()->attach($id);
 
         return back();
     }
