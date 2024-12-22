@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AddressRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\Profile;
-use App\Models\User;
 use App\Models\Favorite;
 
 class ItemController extends Controller
@@ -14,6 +14,7 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $items = Item::all();
+        $
 
         $keyword = $request->input('keyword');
         $query = Item::query();
@@ -53,9 +54,10 @@ class ItemController extends Controller
 
     public function getDetail(Request $request, $itemId)
     {
-        $item = Item::find($itemId); 
-
-        return view('detail', compact('item'));
+        $item = Item::find($itemId);
+        $condition = Condition::find($request->condition_id);
+    
+        return view('detail', compact('item', 'condition'));
     }
 
     public function getPurchase($itemId)

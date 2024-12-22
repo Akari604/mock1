@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConditionItemTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateConditionItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('condition_item', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('condition_id');
-            $table->foreignId('item_id');
+            $table->string('content');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateConditionItemTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('condition_item');
+        Schema::dropIfExists('categories');
     }
 }

@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class ConditionsTableSeeder extends Seeder
+class CategoryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,16 +13,16 @@ class ConditionsTableSeeder extends Seeder
      */
     public function run()
     {
-        $conditions = [
-            "良好",
+        $contents = [
+            "",
             "目立った傷や汚れなし",
             "やや傷や汚れあり",
             "状態が悪い"
         ];
 
-        foreach ($conditions as $condition) {
-            DB::table('conditions')->insert([
-                'condition' => $condition,
+        foreach ($contents as $content) {
+            DB::table('categories')->insert([
+                'content' => $content,
             ]);
         }
     }

@@ -50,23 +50,19 @@
                 <div class="main-content_text">
                     <div class="product_content">
                         <h2>{{ $item->product_name }}</h2>
-                        <p class="brand_name">ブランド名</p>
+                        <p class="brand_name">{{ $item->brand_name }}</p>
                         <p class="item_price"><span>￥</span>{{ $item->price }}<span>(税込)</span></p>
                     </div>
                     <div class="tap_button">
-                        @auth
-                            @if (!empty($itemId))
-                                <span class="favorites">
-                                    <i class="fa-regular fa-star like-Btn" data-item-id="{{ $item->id }}"></i>
-                                </span>
-                            @else
-                                <span class="favorites">
-                                    <i class="fa-regular fa-star like-Btn liked" data-item-id="{{ $item->id }}"></i>
-                                </span>  
-                            @endif   
-                        @endauth
-                        <a href="/item/{{ $item->id }}/like">いいね</a>
-                        <div class="like-count" id="likeCount">0</div>
+                    
+                            <a href="/item/{{ $item->id }}/unlike">
+                                <i class="fa-regular fa-star like-Btn"></i>
+                            </a>
+                 
+                            <a href="/item/{{ $item->id }}/like">
+                                <i class="fa-regular fa-star like-Btn liked"></i>
+                            </a>
+                
                         <button type="button" class="comment-btn" id="commentButton">
                             <i class="fa-regular fa-comment" data-item-id="{{ $item->id }}"></i>
                         </button>
@@ -118,7 +114,7 @@
         </form> 
     </main>  
     <script>
-    
+
     </script>       
 </body>
 </html>
