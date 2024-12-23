@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AddressRequest;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Item;
 use App\Models\Profile;
 use App\Models\Favorite;
+use App\Models\Condition;
 
 class ItemController extends Controller
 {
     public function index(Request $request)
     {
         $items = Item::all();
-        $
 
         $keyword = $request->input('keyword');
         $query = Item::query();

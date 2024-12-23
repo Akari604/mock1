@@ -62,11 +62,6 @@
     margin-left: 200px;
 }
 
-
-.tap_button {
-    display: flex;
-}
-
 .tap_button button {
     border: none;
     background-color: #fff;
@@ -81,7 +76,13 @@
     font-family: "Font Awesome 5 Free";
     font-style: normal;
     font-size: 25px;
-  }
+}
+
+.like-count {
+    margin-top: -6%;
+    margin-left: 1.5%;
+    font-size: 0.8rem;
+}
 
 .comment-regular {
     width: 25px;

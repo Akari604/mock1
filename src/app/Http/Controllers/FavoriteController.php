@@ -12,8 +12,6 @@ class FavoriteController extends Controller
         $user = Auth::user();
         // if (!$user->favorites($id)) {
         //     $user->favorites()->attach($id);
-        // } else {
-        //     $user->favorites()->detach($id);
         // }
         $user->favorites()->attach($id);
 
@@ -25,8 +23,6 @@ class FavoriteController extends Controller
         $user = Auth::user();
         // if ($user->favorites($id)) {
         //     $user->favorites()->detach($id);
-        // } else {
-        //     $user->favorites()->attach($id);
         // }
         $user->favorites()->detach($id);
         
