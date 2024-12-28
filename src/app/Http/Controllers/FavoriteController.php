@@ -10,9 +10,6 @@ class FavoriteController extends Controller
     public function likeStore($id)
     {
         $user = Auth::user();
-        // if (!$user->favorites($id)) {
-        //     $user->favorites()->attach($id);
-        // }
         $user->favorites()->attach($id);
 
         return back();
@@ -21,9 +18,6 @@ class FavoriteController extends Controller
     public function likeDestroy($id)
     {
         $user = Auth::user();
-        // if ($user->favorites($id)) {
-        //     $user->favorites()->detach($id);
-        // }
         $user->favorites()->detach($id);
         
         return back();

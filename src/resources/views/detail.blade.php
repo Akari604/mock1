@@ -53,7 +53,7 @@
                         <p class="brand_name">{{ $item->brand_name }}</p>
                         <p class="item_price"><span>￥</span>{{ $item->price }}<span>(税込)</span></p>
                     </div>
-                    <div class="tap_button">
+                    <div class="like-tap_button">
                         @if($item->users()->where('user_id', Auth::id())->exists())
                             <a href="/item/{{ $item->id }}/unlike">
                                 <i class="fa-regular fa-star like-Btn liked"></i>
@@ -66,10 +66,12 @@
                         <div class="like-count">
                             <p>{{ $item->users()->count() }}</p>
                         </div>
-                        <button type="button" class="comment-btn" id="commentButton">
-                            <i class="fa-regular fa-comment" data-item-id="{{ $item->id }}"></i>
-                        </button>
-                        <div class="comment-count" id="commentCount">0</div>
+                    </div>
+                    <div class="comment-mark">
+                        <i class="fa-regular fa-comment"></i>
+                        <div class="comment-count">
+                            <p>{{ $item->users()->count() }}</p>
+                        </div>
                     </div>
                     <div class="main-content_btn">
                         <a href="/purchase/{{ $item->id }}" class="purchase-btn">購入手続きへ</a>
@@ -99,18 +101,18 @@
                             <P class="text_comment"></p>
                         </div>
                         <div class="product_message">
-                            <textarea cols="20" rows="5" name="message_comment" class="message-comment"></textarea>
+                            <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
                         </div>
                         <div class="contact-form__error-message">
                             @error('body')
                             {{ $message }}
                             @enderror
                         </div>
-                        <form class="comment" action="/item/{item_id}" method="post">
+                        <a href="/item/{{ $item->id }}/comment" class="comment">
                             <div class="button-content">
-                                <button type="submit" class="submit-button">コメントを送信する</button>
+                                <p class="submit-button">コメントを送信する</p>
                             </div>
-                        </form>
+                        </a>
                     </div>
                 </div>
             </div>

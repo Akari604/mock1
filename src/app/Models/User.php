@@ -42,16 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public function items()
-    // {
-    //     return $this->belongsToMany(Item::class, 'favorites')
-    //         ->using(Favorite::class);
-    // }
-
     public function favorites()
     {
         return $this->belongsToMany(Item::class, 'favorites');
     }
 
-
+    public function comments()
+    {
+        return $this->belongsToMany(Item::class, 'comments')
+        ->withPivot('body')
+        ->withTimestamps();
+    }
 }

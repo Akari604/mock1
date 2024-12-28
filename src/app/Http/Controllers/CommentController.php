@@ -3,27 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Comment;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Item;
+// use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
+
 
 class CommentController extends Controller
 {
-    public function getRegister()
+    public function commentStore(Request $request, $id)
     {
-        $comment = new Comment();
-        $comment->comment = $request->comment;
-        $comment->item_id = $request->item_id;
-        $comment->user_id = Auth::user()->id;
-        $comment->save();
+        $people = Auth::user();
+        // $body = Comment::all();
+        // $people->comments()->attach($id, ['body' => $body]);
 
-        return redirect('/item/{item_id}');
+        return back();
     }
 
-    public function destroy(Request $request)
+    public function commentDestroy(Request $request)
     {
-        $comment = Comment::find($request->comment_id);
-        $comment->delete();
-
-        return redirect('/item/{item_id}');
+        $people = Auth::user();
+        $people->comments()->attach($request->item_id, ['body' => $body]);
+        
+        return back();
     }
 }

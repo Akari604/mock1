@@ -52,22 +52,22 @@ class ItemController extends Controller
         return redirect('/mypage');
     }
 
-    public function getDetail(Request $request, $itemId)
+    public function getDetail(Request $request, $id)
     {
-        $item = Item::find($itemId);
+        $item = Item::find($id);
         $condition = Condition::find($request->condition_id);
     
         return view('detail', compact('item', 'condition'));
     }
 
-    public function getPurchase($itemId)
+    public function getPurchase($id)
     {
-        $item = Item::find($itemId);
+        $item = Item::find($id);
         
         return view('purchase', compact('item'));
     }
 
-    public function getAddress($itemId)
+    public function getAddress($id)
     {
         
         return view('change');

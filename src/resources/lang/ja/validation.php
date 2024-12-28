@@ -152,6 +152,6 @@ return [
 
     'attributes' => [
         'name' => 'お名前',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
     ],
 ];
