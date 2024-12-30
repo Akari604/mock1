@@ -32,6 +32,13 @@
     margin-right: 25px;
 }
 
+.logout_button {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000;
+    font-size: 1rem;
+}
+
 .top_button {
     color: #fff;
     text-decoration: none;

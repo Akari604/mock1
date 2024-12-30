@@ -22,9 +22,9 @@
             </form>
             <div class="header-button">
                 @auth
-                    <form class="top_button" action="/logout" method="post">
+                    <form class="logout_button" action="/logout" method="post">
                     @csrf
-                        <button class="top_button">ログアウト</button>
+                        <button class="logout_button">ログアウト</button>
                     </form>
                 @endauth
                 @guest
@@ -32,7 +32,7 @@
                         ログイン
                     </a>
                 @endguest
-                <a href="/mylist" class="top_button">
+                <a href="/{{ $item->param }}" class="top_button">
                     マイリスト
                 </a>
                 <a href="/exhibit" class="product_exhibit">
@@ -90,29 +90,33 @@
                     <div class="product_comment">
                         <p class="comment">コメント<span>()</span></p>
                         <div class="user-display">
-                                <div class="user_img">
-                                    <img src="" alt="ユーザー画像" class="img-user">
-                                </div>
-                                <div class="user_name">
-                                    <p class="name"></p>
-                                </div>
+                            <div class="user_img">
+                                <img src="" alt="ユーザー画像" class="img-user">
+                            </div>
+                            <div class="user_name">
+                                <p class="name"></p>
+                            </div>
                         </div>
                         <div class="user_comment">
                             <P class="text_comment"></p>
                         </div>
-                        <div class="product_message">
-                            <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
-                        </div>
-                        <div class="contact-form__error-message">
-                            @error('body')
-                            {{ $message }}
-                            @enderror
-                        </div>
-                        <a href="/item/{{ $item->id }}/comment" class="comment">
-                            <div class="button-content">
-                                <p class="submit-button">コメントを送信する</p>
+                        @foreach($people as $user)
+                            foreach($user->body as $body)
+                        @endforeach
+                        <form class="comment-form" action="/item/{{ $item->id }}/comment" method="get">
+                            @csrf
+                            <div class="product_message">
+                                <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
                             </div>
-                        </a>
+                            <div class="contact-form__error-message">
+                                @error('body')
+                                {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="button-content">
+                                <button class="submit-button">コメントを送信する</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

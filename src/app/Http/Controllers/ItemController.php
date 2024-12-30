@@ -9,6 +9,8 @@ use App\Models\Item;
 use App\Models\Profile;
 use App\Models\Favorite;
 use App\Models\Condition;
+// use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -25,9 +27,7 @@ class ItemController extends Controller
             $query->where('product_name','like','%'.$keyword.'%');
         }
 
-        $items = $query->get();
-
-        return view('index', compact('items', 'keyword'));
+        return view('index', $item, compact('items', 'keyword'));
     }
 
     public function store()
@@ -56,8 +56,9 @@ class ItemController extends Controller
     {
         $item = Item::find($id);
         $condition = Condition::find($request->condition_id);
+        $people = Auth::user();
     
-        return view('detail', compact('item', 'condition'));
+        return view('detail', compact('item', 'condition', 'people'));
     }
 
     public function getPurchase($id)

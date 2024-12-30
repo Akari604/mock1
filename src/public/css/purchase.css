@@ -1,0 +1,115 @@
+.header {
+    margin: 0;
+    background-color: #000;
+}
+
+.header-ttl {
+    padding: 10px 10px;
+}
+
+.header-content {
+    display: flex;
+}
+
+.header-search_form input {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 250%;
+    padding: 9px 30px;
+    position: relative;
+    left: 50%;
+    margin: 8px 0;
+}
+
+.header-button {
+    position: relative;
+    left: 37%;
+    top: 15px;
+}
+
+.header-button a {
+    margin-right: 25px;
+}
+
+.logout_button {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000;
+    font-size: 1rem;
+}
+
+.top_button {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000;
+}
+
+.product_exhibit {
+    border: 1px solid #fff;
+    background-color: #fff;
+    text-decoration: none;
+    color: #000;
+    padding: 3px 15px;
+    border-radius: 5px;
+}
+
+.product_content {
+    display: flex;
+    margin-top: 80px;
+    border-bottom: solid 1px;
+    width: 55%;
+    margin-left: 100px;
+}
+
+.img-content {
+    width: 180px;
+    height: 180px;
+}
+
+.product_img {
+    margin-bottom: 40px;
+}
+
+.product_name {
+    margin-left: 50px;
+}
+
+.select-payment_method {
+    margin-left: 100px;
+    border-bottom: solid 1px;
+    width: 55%;
+}
+
+.payment_method {
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.payment_method-form {
+    margin-bottom: 60px;
+    margin-left: 100px;
+}
+
+.form-send_direction {
+    margin-left: 100px;
+    border-bottom: solid 1px;
+    width: 55%;
+}
+
+.send_direction-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.send_direction {
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.send_direction-change {
+    margin-top: 20px;
+    margin-right: 50px;
+    text-decoration: none;
+    color: blue;
+}

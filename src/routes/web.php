@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/purchase/{item_id}',[ItemController::class, 'getPurchase']);
     Route::get('/purchase/address/{item_id}',[ItemController::class, 'getAddress']);
     Route::get('/sell',[ItemController::class, 'getSell']);
-    
+
     Route::get('/item/{item_id}/comment', [CommentController::class, 'commentStore']);
     Route::get('/item/{item_id}/uncomment', [CommentController::class, 'commentDestroy']);
 });
