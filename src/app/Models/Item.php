@@ -20,7 +20,7 @@ class Item extends Model
     {
         return $this->belongsToMany(User::class, 'favorites')
             ->using(Favorite::class);
-    } 
+    }
 
     public function people()
     {

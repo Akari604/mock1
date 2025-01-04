@@ -7,9 +7,7 @@ use App\Http\Requests\AddressRequest;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Profile;
-use App\Models\Favorite;
 use App\Models\Condition;
-// use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -27,24 +25,28 @@ class ItemController extends Controller
             $query->where('product_name','like','%'.$keyword.'%');
         }
 
-        return view('index', $item, compact('items', 'keyword'));
+        return view('index', compact('items', 'keyword'));
     }
 
     public function store()
     {
-        return view('profile');
+        $user = Auth::user();
+
+        return view('profile', compact('user'));
     }
     
     public function create(AddressRequest $request)
     {
-        $form = $request->all();
-        Profile::create($form);
+        // $form = $request->only(['name', 'number', 'address', 'building', 'image']);
+        // User::create($form);
         return redirect('/');
     }
 
     public function editProfile()
     {
-        return view('edit_profile');
+        $user = Auth::user();
+
+        return view('edit_profile', compact('user'));
     }
 
     public function updateProfile()
@@ -56,9 +58,9 @@ class ItemController extends Controller
     {
         $item = Item::find($id);
         $condition = Condition::find($request->condition_id);
-        $people = Auth::user();
+        $users = User::all();
     
-        return view('detail', compact('item', 'condition', 'people'));
+        return view('detail', compact('item', 'condition', 'users'));
     }
 
     public function getPurchase($id)

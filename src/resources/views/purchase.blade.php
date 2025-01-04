@@ -93,5 +93,6 @@
             </div>
         </div>
     </main>
+    <script src="https://js.stripe.com/v3/"></script>
 </body>
 </html>

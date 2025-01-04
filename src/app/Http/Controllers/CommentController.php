@@ -14,13 +14,8 @@ class CommentController extends Controller
     public function commentStore(CommentRequest $request, $id)
     {
         $people = Auth::user();
-        $comment = new Comment();
-        $comment->body = $request->input('body');
-        $comment->save();
-        $people->comments()->attach($id, $request->body);
-
         // $body = Comment::all();
-        // $people->comments()->attach($id, ['body' => $body]);
+        $people->comments()->attach($id, ['body' => $body]);
         
 
         return back();
@@ -29,7 +24,7 @@ class CommentController extends Controller
     public function commentDestroy(Request $request)
     {
         $people = Auth::user();
-        $people->comments()->attach($request->item_id, ['body' => $body]);
+        $people->comments()->detach($id, ['body' => $body]);
         
         return back();
     }

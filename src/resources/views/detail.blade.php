@@ -90,19 +90,20 @@
                     <div class="product_comment">
                         <p class="comment">コメント<span>()</span></p>
                         <div class="user-display">
-                            <div class="user_img">
-                                <img src="" alt="ユーザー画像" class="img-user">
-                            </div>
-                            <div class="user_name">
-                                <p class="name"></p>
-                            </div>
+                            @foreach($users as $user)
+                                <div class="user_img">
+                                    <img src="" alt="ユーザー画像" class="img-user">
+                                </div>
+                                <div class="user_name">
+                                    <p class="name">{{ $user->name }}</p>
+                                </div>
+                                @foreach($user->comments as $body)
+                                <div class="user_comment">
+                                    <P class="text_comment">{{ $body->pivot->body }}</p>
+                                </div>
+                                @endforeach
+                            @endforeach
                         </div>
-                        <div class="user_comment">
-                            <P class="text_comment"></p>
-                        </div>
-                        @foreach($people as $user)
-                            foreach($user->body as $body)
-                        @endforeach
                         <form class="comment-form" action="/item/{{ $item->id }}/comment" method="get">
                             @csrf
                             <div class="product_message">
