@@ -27,4 +27,9 @@ class Item extends Model
         return $this->belongsToMany(User::class, 'comments')
             ->using(Comment::class);
     } 
+
+    public function condition()
+    {
+        return $this->belongsTo(Condition::class);
+    }
 }

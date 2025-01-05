@@ -30,23 +30,28 @@ class ItemController extends Controller
 
     public function store()
     {
-        $user = Auth::user();
-
-        return view('profile', compact('user'));
+        return view('profile');
     }
     
     public function create(AddressRequest $request)
     {
-        // $form = $request->only(['name', 'number', 'address', 'building', 'image']);
-        // User::create($form);
+        $form = $request->only(['name', 'number', 'address', 'building', 'image']);
+        Profile::create($form);
+        // User::create(
+        //     $request->only([
+        //         'name',
+        //         'address',
+        //         'building',
+        //         'image'
+        //     ])
+        // );
+
         return redirect('/');
     }
 
     public function editProfile()
     {
-        $user = Auth::user();
-
-        return view('edit_profile', compact('user'));
+        return view('edit_profile');
     }
 
     public function updateProfile()
