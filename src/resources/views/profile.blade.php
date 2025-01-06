@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プロフィール設定画面</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/edit.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}" />
 </head>
 <body>
     <header class="header">
@@ -28,7 +28,7 @@
                         ログイン
                     </a>
                 @endguest
-                <a href="/{{ $item->param }}" class="top_button">
+                <a href="" class="top_button">
                     マイリスト
                 </a>
                 <a href="/exhibit" class="product_exhibit">
@@ -42,7 +42,7 @@
             <div class="main-content_title">
                 <h2>プロフィール設定</h2>
             </div>
-            <form class="main-content_form" action="/mypage" method="post" enctype="multipart/form-data">
+            <form class="main-content_form" action="/mypage/profile" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="main-content_image">
                     <div class="profile_image">

@@ -18,8 +18,7 @@ use App\Http\Controllers\CommentController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/',[ItemController::class, 'index']);
-    Route::get('/mypage',[ItemController::class, 'store']);
-    Route::post('/mypage',[ItemController::class, 'create']);
+    Route::get('/mypage',[ItemController::class, 'getMypage']);
     Route::get('/mypage/profile',[ItemController::class, 'editProfile']);
     Route::post('/mypage/profile',[ItemController::class, 'updateProfile']);
     Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
@@ -35,7 +34,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/',[ItemController::class, 'index']);
 Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
-Route::post('/item/{item_id}',[ItemController::class, 'getLike']);
 
 
 

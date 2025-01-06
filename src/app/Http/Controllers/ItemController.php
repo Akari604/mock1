@@ -28,35 +28,35 @@ class ItemController extends Controller
         return view('index', compact('items', 'keyword'));
     }
 
-    public function store()
+    public function getMypage()
     {
         return view('profile');
     }
-    
-    public function create(AddressRequest $request)
-    {
-        $form = $request->only(['name', 'number', 'address', 'building', 'image']);
-        Profile::create($form);
-        // User::create(
-        //     $request->only([
-        //         'name',
-        //         'address',
-        //         'building',
-        //         'image'
-        //     ])
-        // );
 
-        return redirect('/');
-    }
-
-    public function editProfile()
+    public function editProfile(Request $request)
     {
         return view('edit_profile');
     }
 
-    public function updateProfile()
+    public function updateProfile(AddressRequest $request)
     {
-        return redirect('/mypage');
+        $dir = 'images';
+
+        $file_name = $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+
+        $image = new User();
+        $image->image = $file_name;
+        $image->name = $_POST["name"];
+        $image->number = $_POST["number"];
+        $image->address = $_POST["address"];
+        $image->building = $_POST["building"];
+        $image->save();
+
+        $form = $request->only(['name', 'number', 'address', 'building', 'image']);
+        Profile::create($form);
+
+        return redirect('/');
     }
 
     public function getDetail(Request $request, $id)
