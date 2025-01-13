@@ -12,4 +12,9 @@ class Condition extends Model
     protected $guarded = [
         'id',
     ];
+
+    public function items()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

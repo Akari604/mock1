@@ -35,7 +35,18 @@ class ItemController extends Controller
 
     public function editProfile(Request $request)
     {
-        return view('edit_profile');
+        // $profiles = Profile::with('users')->get();
+        // dd($profiles);
+        $users = Profile::query()->get();
+        foreach ($users as $user) {
+            $user->id;
+        }
+        dd($user);
+
+        // $profile = User::find(1)->profiles;
+        // dd($profile);
+
+        return view('edit_profile', compact('users'));
     }
 
     public function updateProfile(AddressRequest $request)
@@ -45,16 +56,19 @@ class ItemController extends Controller
         $file_name = $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('public/' . $dir, $file_name);
 
-        $image = new User();
-        $image->image = $file_name;
-        $image->name = $_POST["name"];
-        $image->number = $_POST["number"];
-        $image->address = $_POST["address"];
-        $image->building = $_POST["building"];
-        $image->save();
 
-        $form = $request->only(['name', 'number', 'address', 'building', 'image']);
-        Profile::create($form);
+        // $form = $request->only(['name', 'number', 'address', 'building', 'image']);
+        // Profile::create($form);
+
+        Profile::create(
+                $request->only([
+                    'name',
+                    'number',
+                    'address',
+                    'building',
+                    'image'
+                ])
+            );
 
         return redirect('/');
     }

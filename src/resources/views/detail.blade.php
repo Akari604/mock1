@@ -32,7 +32,7 @@
                         ログイン
                     </a>
                 @endguest
-                <a href="/{{ $item->param }}" class="top_button">
+                <a href="" class="top_button">
                     マイリスト
                 </a>
                 <a href="/exhibit" class="product_exhibit">

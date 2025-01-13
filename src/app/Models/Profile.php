@@ -14,6 +14,7 @@ class Profile extends Model
         'name',
         'number',
         'address',
-        'building'
+        'building',
+        'user_id'
     ];
 }
