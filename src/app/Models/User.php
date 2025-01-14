@@ -58,9 +58,4 @@ class User extends Authenticatable
         ->withPivot('body')
         ->withTimestamps();
     }
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
 }

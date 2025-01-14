@@ -17,4 +17,19 @@ class Profile extends Model
         'building',
         'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // 保存時user_idをログインユーザーに設定
+        self::saving(function($profile) {
+            $profile->user_id = \Auth::id();
+        });
+    }
 }

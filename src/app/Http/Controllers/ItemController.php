@@ -35,18 +35,7 @@ class ItemController extends Controller
 
     public function editProfile(Request $request)
     {
-        // $profiles = Profile::with('users')->get();
-        // dd($profiles);
-        $users = Profile::query()->get();
-        foreach ($users as $user) {
-            $user->id;
-        }
-        dd($user);
-
-        // $profile = User::find(1)->profiles;
-        // dd($profile);
-
-        return view('edit_profile', compact('users'));
+        return view('edit_profile');
     }
 
     public function updateProfile(AddressRequest $request)

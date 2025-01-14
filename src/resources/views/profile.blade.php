@@ -44,6 +44,9 @@
             </div>
             <form class="main-content_form" action="/mypage/profile" method="post" enctype="multipart/form-data">
                 @csrf
+                @foreach($users as $user)
+                    {{ $user->profiles->user_id }}
+                @endforeach
                 <div class="main-content_image">
                     <div class="profile_image">
                         <img src="" alt="プロフィール画像" class="img-content">
