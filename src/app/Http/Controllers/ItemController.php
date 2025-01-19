@@ -9,6 +9,7 @@ use App\Models\Item;
 use App\Models\Profile;
 use App\Models\Condition;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Comment;
 
 class ItemController extends Controller
 {
@@ -70,6 +71,14 @@ class ItemController extends Controller
     
         return view('detail', compact('item', 'condition', 'users'));
     }
+
+    // public function create(Request $request)
+    // {
+    //     $comment = $request->only(['body']);
+    //     Comment::create($comment);
+
+    //     return redirect('item/{item_id}/comment');
+    // }
 
     public function getPurchase($id)
     {

@@ -13,7 +13,7 @@ class Condition extends Model
         'id',
     ];
 
-    public function items()
+    public function item()
     {
         return $this->belongsTo(Item::class);
     }

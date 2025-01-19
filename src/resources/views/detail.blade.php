@@ -58,7 +58,7 @@
                             <a href="/item/{{ $item->id }}/unlike">
                                 <i class="fa-regular fa-star like-Btn liked"></i>
                             </a>
-                        @else
+                            @else
                             <a href="/item/{{ $item->id }}/like">
                                 <i class="fa-regular fa-star like-Btn"></i>
                             </a>
@@ -83,7 +83,7 @@
                     <div class="product_information">
                         <h3>商品の情報</h3>
                         <div class="product_information-content">
-                            <p class="product_category">カテゴリー<span></span></p>
+                            <p class="product_category">カテゴリー<span>{{ $item->condition }}</span></p>
                             <p class="product_condition">商品の状態<span></span></p>
                         </div>
                     </div>
@@ -91,33 +91,35 @@
                         <p class="comment">コメント<span>()</span></p>
                         <div class="user-display">
                             @foreach($users as $user)
-                                <div class="user_img">
-                                    <img src="" alt="ユーザー画像" class="img-user">
-                                </div>
-                                <div class="user_name">
-                                    <p class="name">{{ $user->name }}</p>
-                                </div>
                                 @foreach($user->comments as $body)
-                                <div class="user_comment">
-                                    <P class="text_comment">{{ $body->pivot->body }}</p>
-                                </div>
+                                    <div class="user_img">
+                                        <img src="" alt="ユーザー画像" class="img-user">
+                                    </div>
+                                    <div class="user_name">
+                                        <p class="name">{{ $user->name }}</p>
+                                    </div>
+                                    <div class="user_comment">
+                                        <P class="text_comment">{{ $body->pivot->body }}</p>
+                                    </div>
                                 @endforeach
                             @endforeach
                         </div>
-                        <form class="comment-form" action="/item/{{ $item->id }}/comment" method="get">
-                            @csrf
-                            <div class="product_message">
-                                <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
-                            </div>
-                            <div class="contact-form__error-message">
-                                @error('body')
-                                {{ $message }}
-                                @enderror
-                            </div>
-                            <div class="button-content">
-                                <button class="submit-button">コメントを送信する</button>
-                            </div>
-                        </form>
+                        @auth
+                            <form class="comment-form" action="/item/{{ $item->id }}/comment" method="get">
+                                @csrf
+                                <div class="product_message">
+                                    <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
+                                </div>
+                                <div class="contact-form__error-message">
+                                    @error('body')
+                                    {{ $message }}
+                                    @enderror
+                                </div>
+                                <div class="button-content">
+                                    <button class="submit-button">コメントを送信する</button>
+                                </div>
+                            </form>
+                        @endauth
                     </div>
                 </div>
             </div>

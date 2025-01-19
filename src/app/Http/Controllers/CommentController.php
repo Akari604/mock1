@@ -11,13 +11,11 @@ use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
-    public function commentStore(CommentRequest $request, $id)
+    public function commentStore(Request $request, $id)
     {
         $people = Auth::user();
-        // $body = Comment::all();
         $people->comments()->attach($id, ['body' => $body]);
         
-
         return back();
     }
 
