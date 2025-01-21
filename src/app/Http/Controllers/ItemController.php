@@ -72,13 +72,13 @@ class ItemController extends Controller
         return view('detail', compact('item', 'condition', 'users'));
     }
 
-    // public function create(Request $request)
-    // {
-    //     $comment = $request->only(['body']);
-    //     Comment::create($comment);
+    public function commentPost(Request $request)
+    {
+        $comment = $request->only(['body']);
+        Comment::create($comment);
 
-    //     return redirect('item/{item_id}/comment');
-    // }
+        return view('/item/{item_id}');
+    }
 
     public function getPurchase($id)
     {

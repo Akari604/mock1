@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile',[ItemController::class, 'editProfile']);
     Route::post('/mypage/profile',[ItemController::class, 'updateProfile']);
     Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
+    Route::post('/item/post',[ItemController::class, 'commentPost']);
     Route::get('/item/{item_id}/comment', [CommentController::class, 'commentStore']);
     Route::get('/item/{item_id}/uncomment', [CommentController::class, 'commentDestroy']);
 
