@@ -10,6 +10,7 @@ use App\Models\Profile;
 use App\Models\Condition;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
 
 class ItemController extends Controller
 {
@@ -46,10 +47,6 @@ class ItemController extends Controller
         $file_name = $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('public/' . $dir, $file_name);
 
-
-        // $form = $request->only(['name', 'number', 'address', 'building', 'image']);
-        // Profile::create($form);
-
         Profile::create(
                 $request->only([
                     'name',
@@ -75,15 +72,15 @@ class ItemController extends Controller
     public function commentPost(Request $request)
     {
         $comment = $request->only(['body']);
-        Comment::create($comment);
+        Comment::crete($comment);
 
-        return view('/item/{item_id}');
+        return redirect('/item/{item_id}/comment');
     }
 
     public function getPurchase($id)
     {
         $item = Item::find($id);
-        
+                
         return view('purchase', compact('item'));
     }
 

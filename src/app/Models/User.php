@@ -55,7 +55,7 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->belongsToMany(Item::class, 'comments')
-        ->withPivot('body')
+        // ->withPivot('body')
         ->withTimestamps();
     }
 }

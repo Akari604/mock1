@@ -104,24 +104,22 @@
                                 @endforeach
                             @endforeach
                         </div>
-                        @auth
-                            <form class="comment-form" action="/item/{{ $item->id }}" method="post">
-                                @csrf
-                                <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                <div class="product_message">
-                                    <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
-                                </div>
-                                <div class="contact-form__error-message">
-                                    @error('body')
-                                    {{ $message }}
-                                    @enderror
-                                </div>
-                                <div class="button-content">
-                                    <button class="submit-button">コメントを送信する</button>
-                                </div>
-                            </form>
-                        @endauth
+                        <form class="comment-form" action="/item/{{ $item->id }}/post" method="post">
+                        @csrf
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                            <div class="product_message">
+                                <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
+                            </div>
+                            <div class="contact-form__error-message">
+                                @error('body')
+                                {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="button-content">
+                                <button class="submit-button">コメントを送信する</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
