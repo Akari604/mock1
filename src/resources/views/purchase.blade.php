@@ -29,10 +29,10 @@
                         ログイン
                     </a>
                 @endguest
-                <a href="/mylist" class="top_button">
+                <a href="/mypage" class="top_button">
                     マイリスト
                 </a>
-                <a href="/exhibit" class="product_exhibit">
+                <a href="/sell" class="product_exhibit">
                     出品
                 </a>
             </div>

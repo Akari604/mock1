@@ -27,12 +27,14 @@ class ItemController extends Controller
             $query->where('product_name','like','%'.$keyword.'%');
         }
 
+        $items = $query->get();
+
         return view('index', compact('items', 'keyword'));
     }
 
     public function getMypage()
     {
-        return view('profile');
+        return view('mylist');
     }
 
     public function editProfile(Request $request)

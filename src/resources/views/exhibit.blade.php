@@ -29,10 +29,10 @@
                         ログイン
                     </a>
                 @endguest
-                <a href="/{{ $item->param }}" class="top_button">
+                <a href="/mypage" class="top_button">
                     マイリスト
                 </a>
-                <a href="/exhibit" class="product_exhibit">
+                <a href="/sell" class="product_exhibit">
                     出品
                 </a>
             </div>
@@ -68,11 +68,6 @@
                     <label class="label">商品の状態</label>
                     <select class="condition" placehplder="選択してください" name="item_condition" id="condition">
                         <option disabled selected>選択してください</option>
-                        @foreach($condition as $conditions)
-                            <option value="{{ $condition->id }}{{ old('condition_id')==$condition->id ? 'selected' : '' }}">
-                                {{ $condition->condition }}
-                            </option>
-                        @endforeach
                     </select>
                     @error('item_condition')
                         <span class="input_error">
