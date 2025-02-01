@@ -14,11 +14,18 @@ Dockerビルド
 6.php artisan storage:link
 
 ##使用技術  
-Laravel Framework 8.83.8
+Laravel Framework 8.83.8  
+nginx 1.21.1  
+MySQL 8.0.26
 
 ##ER図
 
+![スクリーンショット 2025-01-26 204527](https://github.com/user-attachments/assets/6dc24b11-82b7-4a9f-8926-421902d1606d)
+
 
 ##URL  
-開発環境　http://localhost/  
+開発環境　 
+商品一覧画面　http://localhost/ 　
+会員登録画面　http://localhost/register　
 phpMyAdmin http://localhost:8080/
+
