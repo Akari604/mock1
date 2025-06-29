@@ -23,9 +23,7 @@
 }
 
 .header-button {
-    position: relative;
-    left: 37%;
-    top: 15px;
+    display: flex;
 }
 
 .header-button a {

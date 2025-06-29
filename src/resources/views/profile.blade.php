@@ -18,15 +18,15 @@
             </form>
             <div class="header-button">
                 @auth
-                    <form class="logout_button" action="/logout" method="post">
-                    @csrf
-                        <button class="logout_button">ログアウト</button>
-                    </form>
+                <form class="logout_button" action="/logout" method="post">
+                @csrf
+                    <button class="logout_button">ログアウト</button>
+                </form>
                 @endauth
                 @guest
-                    <a href="/login" class="top_button">
-                        ログイン
-                    </a>
+                <a href="/login" class="top_button">
+                    ログイン
+                </a>
                 @endguest
                 <a href="/mypage" class="top_button">
                     マイリスト

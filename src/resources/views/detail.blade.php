@@ -104,12 +104,10 @@
                                 @endforeach
                             @endforeach
                         </div>
-                        <form class="comment-form" action="/item/{{ $item->id }}/post" method="post">
-                        @csrf
-                            <input type="hidden" name="user_id" value="{{ $user->id }}">
-                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                        <form class="comment-form" action="/item/{{ $item->id }}/post" method="get">
+                            @csrf
                             <div class="product_message">
-                                <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" id="body" class="message-comment"></textarea>
+                                <textarea cols="20" rows="5" name="body" value="{{ old('body') }}" class="message-comment"></textarea>
                             </div>
                             <div class="contact-form__error-message">
                                 @error('body')
