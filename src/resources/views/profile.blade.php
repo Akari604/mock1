@@ -49,7 +49,13 @@
                 @endforeach
                 <div class="main-content_image">
                     <div class="profile_image">
-                        <img src="" alt="プロフィール画像" class="img-content">
+                        @foreach($profiles as $profile)
+                            @if($profile->image === null)
+                            <img src="{{ asset('storage/images/gray.jpg') }}" alt="プロフィール画像" class="img-content">
+                            @else
+                            <img src="{{ asset }}" alt="プロフィール画像" class="img-content">
+                            @endif
+                        @endforeach
                     </div>
                     <div class="file-content">
                         画像を選択する

@@ -75,6 +75,23 @@
     margin-left: 50px;
 }
 
+.detail-product_content {
+    display: flex;
+}
+
+.purchase_content {
+    display: flex;
+    position: relative;
+    top: 100px;
+    left: 40px;
+}
+
+.purchase-button {
+    position: relative;
+    top: 100px;
+    left: 40px;
+}
+
 .select-payment_method {
     margin-left: 100px;
     border-bottom: solid 1px;

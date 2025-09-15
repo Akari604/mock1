@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile',[ItemController::class, 'editProfile']);
     Route::post('/mypage/profile',[ItemController::class, 'updateProfile']);
     Route::get('/item/{item_id}',[ItemController::class, 'getDetail']);
-    Route::get('/item/{item_id}/post',[CommentController::class, 'commentPost']);
+    Route::get('/item/{item_id}/post',[CommentController::class, 'create']);
     // Route::get('/item/{item_id}/comment', [CommentController::class, 'commentStore']);
     Route::get('/item/{item_id}/like',[FavoriteController::class, 'likeStore']);
     Route::get('/item/{item_id}/unlike',[FavoriteController::class, 'likeDestroy']);

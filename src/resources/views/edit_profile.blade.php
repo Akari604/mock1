@@ -48,7 +48,7 @@
                 @csrf
                 <div class="main-content_image">
                     <div class="profile_image">
-                        <img src="" alt="プロフィール画像" class="img-content">
+                        <img src="{{ asset('images/grey.jpg') }}" alt="プロフィール画像" class="img-content">
                     </div>
                     <div class="file-content">
                         画像を選択する

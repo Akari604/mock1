@@ -10,7 +10,7 @@ use App\Models\Profile;
 use App\Models\Condition;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
-use App\Http\Requests\CommentRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -39,15 +39,21 @@ class ItemController extends Controller
 
     public function editProfile(Request $request)
     {
-        return view('edit_profile');
+        $profiles = $request->only('image','name','number','address','building','user_id');
+
+        return view('edit_profile', compact('profiles'));
     }
 
     public function updateProfile(AddressRequest $request)
     {
-        $dir = 'images';
-
-        $file_name = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/' . $dir, $file_name);
+        $img = $request->file('image');
+        
+        try {
+            //code...
+            $img_url = Storage::disk('local')->put('public/imges', $img);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
 
         Profile::create(
                 $request->only([
@@ -67,15 +73,19 @@ class ItemController extends Controller
         $item = Item::find($id);
         $condition = Condition::find($request->condition_id);
         $users = User::all();
-    
-        return view('detail', compact('item', 'condition', 'users'));
+        $user = Auth::id();
+        $comment = Comment::get('text_body');
+
+        return view('detail', compact('item', 'condition', 'users', 'user', 'comment'));
     }
 
     public function getPurchase($id)
     {
         $item = Item::find($id);
+        $auth_user = Auth::id();
+        $users = Profile::where('user_id', $auth_user)->get();
                 
-        return view('purchase', compact('item'));
+        return view('purchase', compact('item', 'users'));
     }
 
     public function getAddress($id)
@@ -92,15 +102,19 @@ class ItemController extends Controller
 
     public function upload(ItemRequest $request)
     {
-        $dir = 'images';
-
-        $file_name = $request->file('item_image')->getClientOriginalName();
-        $request->file('item_image')->storeAs('public/' . $dir, $file_name);
+        $img = $request->file('image');
+        
+        try {
+            //code...
+            $img_url = Storage::disk('local')->put('public/imges', $img);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
 
         $item_data = new Item();
         $item_data->name= $_POST["item_name"];
         $item_data->price= $_POST["item_price"];
-        $item_data->image= 'storage/' . $dir . '/' . $file_name;
+        $item_data->image= 'storage/' . $img . '/' . $img_url;
         $item_data->description= $_POST["item_description"];
         $item_data->save();
 

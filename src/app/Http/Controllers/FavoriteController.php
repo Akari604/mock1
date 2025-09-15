@@ -10,7 +10,7 @@ class FavoriteController extends Controller
     public function likeStore($id)
     {
         $user = Auth::user();
-        $user->favorites()->attach($id);
+        $user->favorites()->attach($id); 
 
         return back();
     }
@@ -19,7 +19,7 @@ class FavoriteController extends Controller
     {
         $user = Auth::user();
         $user->favorites()->detach($id);
-        
+
         return back();
     }
 }
